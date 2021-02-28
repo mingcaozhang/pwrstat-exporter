@@ -1,13 +1,10 @@
-use std::io::{Read, Write};
 use std::net::SocketAddr;
-use std::os::unix::process::CommandExt;
-use std::process::{Command, Stdio};
+use std::process::Command;
 
 use env_logger::{
     Builder,
     Env,
 };
-use log::info;
 use prometheus_exporter::prometheus::register_gauge;
 
 fn main() {
