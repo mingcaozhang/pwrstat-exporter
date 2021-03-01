@@ -12,7 +12,6 @@ RUN cargo clean \
 
 RUN echo "ALL ALL = NOPASSWD: /usr/sbin/pwrstat" >> /etc/sudoers
 
-COPY docker-entrypoint.sh /usr/local/bin/
-RUN ln -s /usr/local/bin/docker-entrypoint.sh / # backwards compat
-ENTRYPOINT ["docker-entrypoint.sh"]
+COPY ./docker-entrypoint.sh /
+ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["pwrstat-exporter"]
