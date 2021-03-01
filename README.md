@@ -1,6 +1,6 @@
 # pwrstat-exporter
 
-A Prometheus exporter for[pwrstat](https://www.cyberpowersystems.com/product/software/power-panel-personal/powerpanel-for-linux/) written in Rust.
+A Prometheus exporter for [pwrstat](https://www.cyberpowersystems.com/product/software/power-panel-personal/powerpanel-for-linux/) written in Rust.
 
 ## Prerequisites
 
