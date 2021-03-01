@@ -7,8 +7,8 @@ RUN curl https://dl4jz3rbrsfum.cloudfront.net/software/PPL-1.3.3-64bit.deb --out
     && apt-get install ./powerpanel.deb
 
 RUN cargo clean \
-    cargo update \
-    cargo install --path .
+    && cargo update \
+    && cargo install --path .
 
 RUN echo "ALL ALL = NOPASSWD: /usr/sbin/pwrstat" >> /etc/sudoers
 
