@@ -12,9 +12,7 @@ RUN cargo clean \
 
 RUN echo "ALL ALL = NOPASSWD: /usr/sbin/pwrstat" >> /etc/sudoers
 
-CMD pwrstatd & \
-    pwrstat -pwrfail -shutdown off \
-    pwrstat -pwrfail -active off \
-    pwrstat -lowbatt -shutdown off \
-    pwrstat -lowbatt -active off \
-    pwrstat-exporter
+COPY docker-entrypoint.sh /usr/local/bin/
+RUN ln -s /usr/local/bin/docker-entrypoint.sh / # backwards compat
+ENTRYPOINT ["docker-entrypoint.sh"]
+CMD ["pwrstat-exporter"]
