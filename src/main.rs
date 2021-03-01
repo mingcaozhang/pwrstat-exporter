@@ -31,6 +31,8 @@ fn main() {
             (words[0].trim(), words[1].split_whitespace().collect::<Vec<&str>>()[0].parse::<f64>().unwrap())
         }).collect::<Vec<_>>();
 
+        println!("{:?}", mapping);
+
         for tuple in mapping {
             if tuple.0.eq("Battery Capacity") {
                 battery_capacity.set(tuple.1);
