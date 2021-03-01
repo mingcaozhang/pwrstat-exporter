@@ -12,4 +12,9 @@ RUN cargo install --path .
 
 RUN echo "ALL ALL = NOPASSWD: /usr/sbin/pwrstat" >> /etc/sudoers
 
-CMD ["pwrstat-exporter"]
+CMD pwrstatd \
+    && pwrstat -pwrfail -shutdown off \
+    && pwrstat -pwrfail -active off \
+    && pwrstat -lowbatt -shutdown off \
+    && pwrstat -lowbatt -active off \
+    && pwrstat-exporter
