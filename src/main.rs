@@ -22,7 +22,7 @@ fn main() {
     loop {
         let _guard = exporter.wait_request();
 
-        let pwrstat_cmd = Command::new("sudo").arg("/usr/bin/pwrstat").arg("-status").output().expect("failed to execute process");
+        let pwrstat_cmd = Command::new("pwrstat").arg("-status").output().expect("failed to execute process");
         let pwrstat_str = String::from_utf8(pwrstat_cmd.stdout).expect("invalid string");
         let lines = pwrstat_str.lines().filter(|&s| s.contains("Load") || s.contains("Battery Capacity") || s.contains("Remaining Runtime")).collect::<Vec<&str>>();
 
